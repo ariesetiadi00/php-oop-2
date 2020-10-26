@@ -21,8 +21,7 @@ $member = new Member();
 </head>
 
 <body id="main">
-    <h1 class="text-center m-4">Pengelolaan Member</h1>
-
+    <h1 class="text-center m-4">Member Club Olahraga</h1>
     <!-- Alert Box -->
     <div class="row">
         <div class="col-11 mx-auto">
@@ -30,9 +29,6 @@ $member = new Member();
             <?php if (isset($_SESSION['pesan'])) : ?>
                 <div class="alert alert-primary alert-dismissible fade show" role="alert">
                     <?= $_SESSION['pesan'] ?>
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
                 </div>
             <?php
                 // Unset session jika sudah digunakan

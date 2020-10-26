@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 25, 2020 at 02:37 AM
+-- Generation Time: Oct 27, 2020 at 12:32 AM
 -- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.1
+-- PHP Version: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -42,13 +42,11 @@ CREATE TABLE `member` (
 --
 
 INSERT INTO `member` (`id`, `nama`, `alamat`, `jenis_kelamin`, `telepon`, `foto`) VALUES
-(1, 'Roger Federer', 'Jl. ABC No.123', 'l', '082123456789', 'd-male.png'),
-(2, 'Rafael Nadal', 'Jl. Nangka No.098', 'l', '082109876543', 'd-male.png'),
+(1, 'Roger Federer A', 'Jl. ABC No.1234', 'l', '082123456780', 'd-male.png'),
+(2, 'Rafael Nadal', 'Jl. Nangka No.098', 'l', '082109876545', 'd-male.png'),
 (3, 'Maria Safapova', 'Jl. Durian Runtuh No.555', 'p', '082156567676', 'd-female.png'),
-(4, 'Simona Halep', 'Jl. Apel No.666', 'p', '082166667777', 'd-female.png'),
-(5, 'Baru', 'Baru', 'l', '098098', 'd-male.png'),
-(6, 'Baru', 'Baru', 'p', '123', 'd-female.png'),
-(7, '123', '123', 'p', '123', 'd-female.png');
+(4, 'Simona Halep', 'Jl. Apel No.777', 'p', '082166667888', 'd-female.png'),
+(14, 'David Gael Monfils ', 'Jl. Durian Runtuh No.222', 'p', '089999999999', 'd-female.png');
 
 --
 -- Indexes for dumped tables
@@ -68,7 +66,7 @@ ALTER TABLE `member`
 -- AUTO_INCREMENT for table `member`
 --
 ALTER TABLE `member`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

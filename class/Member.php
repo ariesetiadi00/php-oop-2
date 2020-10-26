@@ -14,7 +14,13 @@ class Member extends Database implements Crud
     private $jenis_kelamin;
     private $telepon;
 
-    // Panggil construct database agar terkoneksi
+    // Method
+    public function cetak_nama()
+    {
+        echo $this->nama;
+    }
+
+    // Panggil construct database agar terkoneksi dengan database
     public function __construct()
     {
         parent::__construct();
@@ -106,13 +112,13 @@ class Member extends Database implements Crud
     // Set Nama
     public function set_nama($nama)
     {
-        $this->nama = $nama;
+        $this->nama = htmlspecialchars($nama);
     }
 
     // Set Alamat
     public function set_alamat($alamat)
     {
-        $this->alamat = $alamat;
+        $this->alamat = htmlspecialchars($alamat);
     }
 
     // Set Jenis Kelamin
@@ -124,6 +130,6 @@ class Member extends Database implements Crud
     // Set Nomor Telepon
     public function set_telepon($telepon)
     {
-        $this->telepon = $telepon;
+        $this->telepon = htmlspecialchars($telepon);
     }
 }
