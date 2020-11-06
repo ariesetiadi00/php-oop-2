@@ -22,20 +22,10 @@ $member = new Member();
 
 <body id="main">
     <h1 class="text-center m-4">Member Club Olahraga</h1>
-    <!-- Alert Box -->
+
     <div class="row">
         <div class="col-11 mx-auto">
-            <!-- Jika ada session['pesan'], tampilkan alert -->
-            <?php if (isset($_SESSION['pesan'])) : ?>
-                <div class="alert alert-primary alert-dismissible fade show" role="alert">
-                    <?= $_SESSION['pesan'] ?>
-                </div>
-            <?php
-                // Unset session jika sudah digunakan
-                unset($_SESSION['pesan']);
-            endif;
-            ?>
-
+            <a href="indexs.php" class="btn btn-primary btn-block btn-sm">Form Sekolah</a>
         </div>
     </div>
 
@@ -54,7 +44,7 @@ $member = new Member();
 
                 <!-- Looping data member dari database -->
                 <?php foreach ($member->get_all() as $i => $m) : ?>
-                    <tr class="member-list" data-id="<?= $m['id'] ?>" data-base="<?= $_SERVER['DOCUMENT_ROOT'] ?>">
+                    <tr class="member-list" data-type="member" data-id="<?= $m['id'] ?>">
                         <td><?= ++$i ?></td>
                         <td><img width="35" src="img/<?= $m['foto'] ?>" alt="Profile"></td>
                         <td><?= $m['nama'] ?></td>
@@ -62,7 +52,7 @@ $member = new Member();
                         <td><?= ($m['jenis_kelamin'] == "l") ? "Laki-laki" : "Perempuan" ?></td>
                         <td><?= $m['telepon'] ?></td>
                         <td>
-                            <a href="page/delete.php?id=<?= $m['id'] ?>" onclick="return confirm('Member akan dihapus')" class="btn btn-sm">
+                            <a href="page/delete.php?id=<?= $m['id'] ?>&type=member" onclick="return confirm('Member akan dihapus')" class="btn btn-sm">
                                 <i class="fas fa-trash-alt"></i>
                             </a>
                         </td>
@@ -81,6 +71,9 @@ $member = new Member();
                         <form id="form-main" method="POST" action="page/create.php">
                             <!-- Hidden ID untuk Update data -->
                             <input id="id" type="hidden" name="id" value="">
+
+                            <!-- Hidden type untuk CRUD -->
+                            <input type="hidden" id="type" name="type" value="member">
 
                             <!-- Nama -->
                             <div class="form-group">

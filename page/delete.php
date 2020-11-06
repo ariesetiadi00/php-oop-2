@@ -1,18 +1,28 @@
 <?php
-// Require Member
-require '../class/Member.php';
+if ($_GET['type'] == 'sekolah') {
+    // Import Class Sekolah
+    require '../class/Sekolah.php';
+    $sekolah = new Sekolah();
 
-// Instansiasi
-$member = new Member();
+    // Set ID untuk menghapu data
+    $sekolah->set_id($_GET['id']);
 
-// Set ID sebagai penentu data mana yang akan dihapus
-$member->set_id($_GET['id']);
+    // Eksekusi
+    $sekolah->delete();
 
-// Eksekusi Delete
-if ($member->delete()) {
-    $_SESSION['pesan'] = "Berhasil menghapus data member";
-} else {
-    $_SESSION['pesan'] = "Gagal menghapus data member";
+    // Redirect ke index sekolah
+    header('Location: ../indexs.php');
+} else if ($_GET['type'] == 'member') {
+    // Import Class Member
+    require '../class/Member.php';
+    $member = new Member();
+
+    // Set ID untuk menghapu data
+    $member->set_id($_GET['id']);
+
+    // Eksekusi
+    $member->delete();
+
+    // Redirect ke index sekolah
+    header('Location: ../index.php');
 }
-
-header('Location: ../');

@@ -1,12 +1,24 @@
 <?php
-// Require class Member untuk query data
-require '../class/Member.php';
+// Require class Member dan Sekolah untuk query data
 
-// Instansiasi
-$member = new Member();
+if ($_POST['type'] == 'sekolah') {
+    // Import Class Sekolah
+    require '../class/Sekolah.php';
+    $sekolah = new Sekolah();
 
-// Set Member ID
-$member->set_id($_POST['id']);
+    // Set ID
+    $sekolah->set_id($_POST['id']);
 
-// Return satu member berdasarkan id dalam file JSON
-echo json_encode(["member" => $member->get()]);
+    // Return Data Sekolah
+    echo json_encode(['sekolah' => $sekolah->get()]);
+} elseif ($_POST['type'] == 'member') {
+    // Import Class Member
+    require '../class/Member.php';
+    $member = new Member();
+
+    // Set ID
+    $member->set_id($_POST['id']);
+
+    // Return data member
+    echo json_encode(['member' => $member->get()]);
+}

@@ -1,6 +1,6 @@
 <?php
 // Require Crud interface
-require $_SERVER['DOCUMENT_ROOT'] . '/lat-sertifikasi2/interface/Crud.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/lat-sertifikasi3/interface/Crud.php';
 
 // Require Database
 require 'Database.php';
@@ -13,12 +13,6 @@ class Member extends Database implements Crud
     private $alamat;
     private $jenis_kelamin;
     private $telepon;
-
-    // Method
-    public function cetak_nama()
-    {
-        echo $this->nama;
-    }
 
     // Panggil construct database agar terkoneksi dengan database
     public function __construct()
@@ -99,7 +93,6 @@ class Member extends Database implements Crud
         // Return hasil eksekusi
         return mysqli_query($this->db, $sql);
     }
-
 
     // Setter
 

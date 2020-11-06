@@ -1,11 +1,28 @@
 <?php
-// Import Class Member
-require "../class/Member.php";
+// Cek tipe formulir
+if ($_POST['type'] == 'sekolah') {
+    // Import Class Sekolah
+    require '../class/Sekolah.php';
+    $sekolah = new Sekolah();
 
-// Instansiasi Class Member
-$member = new Member();
+    // Set Propoerty
+    $sekolah->set_nama_sekolah($_POST['nama_sekolah']);
+    $sekolah->set_nama_kepala_sekolah($_POST['nama_kepala_sekolah']);
+    $sekolah->set_alamat($_POST['alamat_sekolah']);
+    $sekolah->set_jumlah_murid($_POST['jumlah_murid']);
+    $sekolah->set_jumlah_guru($_POST['jumlah_guru']);
+    $sekolah->set_tanggal_berdiri($_POST['tanggal_berdiri']);
 
-if ($_POST) {
+    // Eksekusi
+    $sekolah->create();
+
+    // Redirect ke index sekolah
+    header('Location: ../indexs.php');
+} else if ($_POST['type'] == 'member') {
+    // Import Class Member
+    require "../class/Member.php";
+    $member = new Member();
+
     // Set property
     $member->set_nama($_POST['nama']);
     $member->set_alamat($_POST['alamat']);
@@ -13,11 +30,8 @@ if ($_POST) {
     $member->set_telepon($_POST['telepon']);
 
     // Eksekusi
-    if ($member->create()) {
-        $_SESSION['pesan'] = "Berhasil menambah member baru";
-    } else {
-        $_SESSION['pesan'] = "Gagal menambah member baru";
-    }
+    $member->create();
 
+    // Redirect ke index member
     header('Location: ../');
 }
